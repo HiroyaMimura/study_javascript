@@ -1,18 +1,15 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var getSelectValue = function(name) {
-        var result = [];
-        var opts = document.getElementById(name).options;
-        
-        for(var i=0, len=opts.length; i<len; i++) {
-            var opt = opts.item(i);
-            if(opt.selected) {
-                result.push(opt.value);
-            }
-        }
-        return result;
+    var setListValue = function(name, value) {
+      var opts = document.getElementById(name);
+      
+      for(var i = 0, len = opts.length; i < len; i++) {
+          var opt = opts.item(i);
+          
+          if(value.indexOf(opt.value) > -1) {
+              opt.selected = true;
+          }
+       }
     };
     
-    document.getElementById('btn').addEventListener('click', function() {
-        window.alert(getSelectValue('food'));
-    }, false);
+    setListValue('food', ['餃子', '焼き肉']);
     }, false);
