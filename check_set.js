@@ -1,15 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var setRadioValue = function(name, value) {
+    var setCheckValue = function(name, value) {
         var elems = document.getElementsByName(name);
         
         for(var i=0, len=elems.length; i<len; i++) {
             var elem = elems.item(i);
-            if(elem.value === value) {
+            if(value.indexOf(elem.value) > -1) {
                 elem.checked = true;
-                break;
             }
         }
     };
     
-    setRadioValue('food', '餃子');
+    setCheckValue('food', ['餃子', '焼き肉']);
     }, false);
