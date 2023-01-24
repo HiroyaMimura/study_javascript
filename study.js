@@ -1,9 +1,10 @@
-window.onload = function() {
+document.addEventListener('DOMContentLoaded', function() {
    var btn = document.getElementById('btn');
-   
-   btn.onclick = function() {
+   var listener = function() {
      window.alert('こんにちは');
    };
    
-  btn.onclick = null;
-};
+   btn.addEventListener('click', listener, false);
+   
+  btn.removeEventListener('click', listener, false);
+}, false);
