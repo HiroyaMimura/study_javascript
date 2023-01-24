@@ -1,9 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
-   var main = document.getElementById('main');
-   main.addEventListener('mousemove', function(e) {
-     main.innerHTML = 'screen' + e.screenX + '/' + e.screenY + '<br>'
-     + 'page' + e.pageX + '/' + e.pageY + '<br>'
-     + 'client' + e.clientX + '/' + e.clientY + '<br>'
-     + 'offset' + e.offsetX + '/' + e.offsetY + '<br>';
-   }, false);
+   document.getElementById('inner').addEventListener('click', function(e) {
+     window.alert('#innerリスナーが発生しました');
+   }, true);
+   
+   document.getElementById('inner').addEventListener('click', function(e) {
+     window.alert('#innerリスナー2が発生しました');
+   }, true);
+   
+   document.getElementById('outer').addEventListener('click', function(e) {
+     window.alert('#outerリスナーが発生しました');
+   }, true);
 }, false);
