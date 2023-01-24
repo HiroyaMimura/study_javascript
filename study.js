@@ -1,7 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
-   document.getElementById('btn').addEventListener('click', function(e) {
-     var target = e.target;
-     console.log('発生元：' + target.nodeName + '/' + target.id);
-     console.log('種類：' + e.type);
+   var main = document.getElementById('main');
+   main.addEventListener('mousemove', function(e) {
+     main.innerHTML = 'screen' + e.screenX + '/' + e.screenY + '<br>'
+     + 'page' + e.pageX + '/' + e.pageY + '<br>'
+     + 'client' + e.clientX + '/' + e.clientY + '<br>'
+     + 'offset' + e.offsetX + '/' + e.offsetY + '<br>';
    }, false);
 }, false);
