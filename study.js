@@ -1,7 +1,9 @@
-document.addEventListener('DOMContentLoaded', function() {
-   var elem = document.getElementById('elem');
+window.onload = function() {
+   var btn = document.getElementById('btn');
    
-   elem.addEventListener('click', function() {
-       this.classList.toggle('highlight');
-   }, false);
-  }, false);
+   btn.onclick = function() {
+     window.alert('こんにちは');
+   };
+   
+  btn.onclick = null;
+};
