@@ -1,6 +1,6 @@
 var MyStorage = function(app) {
    this.app = app;
-   this.storage = lacalStorage;
+   this.storage = localStorage;
    this.data = JSON.parse(this.storage[this.app] || '{}');
 };
 
@@ -17,3 +17,8 @@ MyStorage.prototype = {
       this.storage[this.app] = JSON.stringify(this.data);
    }
 };
+
+var storage = new MyStorage('JSSample');
+storage.setItem('hoge', 'ほげ');
+console.log(storage.getItem('hoge'));
+storage.save();
