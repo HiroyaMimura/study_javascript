@@ -1,4 +1,2 @@
-var agent = window.navigator.userAgent.toLowerCase();
-// ...中略...
-var chrome = (agent.indexOf('chrome') > -1) && (agent.indexOf('edge') === -1) && (agent.indexOf('opr') === -1);
-console.log('Chrome:' + chrome);
+console.log('初めまして、私は%sです。%d歳です。', '山田太郎', 30);
+console.log('今日の気温は、%f度です。', 22.5);
