@@ -1,12 +1,4 @@
-var count = 0;
-var result = document.getElementById('result');
-
-document.getElementById('btn').addEventListener('click', function() {
-   result.textContent = ++count;
-   history.pushState(count, null, '/js/chap07/count/' + count);
-});
-
-window.addEventListener('popstate', function(e) {
-   count = e.state;
-   result.textContent = count;
-});
+var agent = window.navigator.userAgent.toLowerCase();
+// ...中略...
+var chrome = (agent.indexOf('chrome') > -1) && (agent.indexOf('edge') === -1) && (agent.indexOf('opr') === -1);
+console.log('Chrome:' + chrome);
