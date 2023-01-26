@@ -10,17 +10,14 @@ function asyncProcess(value) {
    });
 }
 
-asyncProcess('トクジロウ')
-.then(
-   response => {
-      console.log(response);
-      return asyncProcess('ニンサブロウ');
-   }
-)
-.then(
-   response => {
-      console.log(response);
-   },
-   error => {
-      console.log(`エラー：${error}`);
-   });
+Promise.all([
+   asyncProcess('トクジロウ'),
+   asyncProcess('ニンサブロウ'),
+   asyncProcess('リンリン')
+]).then(
+      response => {
+         console.log(response);
+      },
+      error => {
+         console.log(`エラー：${error}`);
+      });
