@@ -1,8 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
-   var target = 'study.html';
-   document.getElementById('btn').addEventListener('click', function() {
-      document.getElementById('frame').contentWindow.postMessage(
-         document.getElementById('message').value, target);
-   }, false);
-   
+    window.addEventListener('message', function(e) {
+        var origin = 'study.html';
+        if(e.origin !== origin) { return; }
+        document.getElementById('result').textContent = e.data;
+    }, false);
 }, false);
