@@ -10,7 +10,7 @@ function asyncProcess(value) {
    });
 }
 
-Promise.all([
+Promise.race([
    asyncProcess('トクジロウ'),
    asyncProcess('ニンサブロウ'),
    asyncProcess('リンリン')
