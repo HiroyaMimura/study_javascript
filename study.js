@@ -1,21 +1,26 @@
-document.addEventListener('DOMContentLoaded', function() {
-   document.getElementById('btn').addEventListener('click', function() {
-      var result = document.getElementById('result');
-      var xhr = new XMLHttpRequest();
-      xhr.onreadystatechange = function() {
-         if(xhr.readyState === 4) {
-            if(xhr.status === 200) {
-               result.textContent = xhr.responseText;
-            } else {
-               result.textContent = 'サーバーエラーが発生しました';
-            }
-         } else {
-            result.textContent = '通信中...';
+document.getElementById('btn').addEventListener('click', function() {
+   var url = 'https://b.hatena.ne.jp/entry/jsonlite/?callback=show&url=' + encodeURIComponent(document.getElementById('url').value);
+   var scr = document.createElement('script');
+   scr.src = url;
+   document.getElementsByTagName('body').item(0).appendChild(scr);
+   }, false);
+   
+   function show(data) {
+      if(data === null) {
+         result.textContent = 'ブックマークは存在しませんでした';
+      } else {
+         var bms = data.bookmarks;
+         var ul = document.createElement('ul');
+         for(var i=0; i<bms.length; i++) {
+            var li = document.createElement('li');
+            var anchor = document.createElement('a');
+            anchor.href = 'http://b.hatena.ne.jp/' + bms[i].user;
+            var text = document.createTextNode(
+               bms[i].user + '' + bms[i].comment);
+               anchor.appendChild(text);
+               li.appendChild(anchor);
+               ul.appendChild(li);
+               result.appendChild(ul);
          }
-      };
-      
-      xhr.open('GET', 'study.php?name=' + 
-         encodeURIComponent(document.getElementById('name').value), true);
-         xhr.send(null);
-      }, false);
-}, false);
+      }
+   } 
