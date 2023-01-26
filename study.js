@@ -10,7 +10,14 @@ function asyncProcess(value) {
    });
 }
 
-asyncProcess().then(
+asyncProcess('トクジロウ')
+.then(
+   response => {
+      console.log(response);
+      return asyncProcess('ニンサブロウ');
+   }
+)
+.then(
    response => {
       console.log(response);
    },
