@@ -1,10 +1,19 @@
-document.addEventListener('DOMContentLoaded', function() {
-    window.addEventListener('message', function(e) {
-        var origin = 'study.html';
-        if(e.origin !== origin) { return; }
-        document.getElementById('result').textContent = e.data;
-        
-        var current = new Date();
-        e.source.postMessage(current, origin);
-    }, false);
-}, false);
+function asyncProcess(value) {
+   return new Promise((resolve, reject) => {
+      setTimeout(() => {
+         if(value) {
+            resolve(`入力値：${value}`);
+         } else {
+            reject('入力は空です');
+         }
+      }, 500);
+   });
+}
+
+asyncProcess().then(
+   response => {
+      console.log(response);
+   },
+   error => {
+      console.log(`エラー：${error}`);
+   });
